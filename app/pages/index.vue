@@ -1,12 +1,27 @@
 <template>
-  <div></div>
+  <div>
+    <div class="flex mt-6 rout">
+      <div class="banner flex-1 mr-6">
+        <banner />
+      </div>
+      <div class="tabs w-1/4 shrink-0">
+        <Tags />
+      </div>
+    </div>
+    <div class="flex mt-6">
+      <div class="list flex-1 p-2 mr-6 bg-white">列表</div>
+      <div class="reco w-1/4 shrink-0 p-2 bg-white">推荐文章</div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import settings from '@/content/settings/general.json';
-
+import Banner from '@/components/partials/banner.vue';
+import Tags from '@/components/partials/category.vue';
 @Component({
+  components: { Banner, Tags },
   // Called to know which transition to apply
   transition() {
     return 'slide-left';
@@ -33,8 +48,7 @@ export default class Home extends Vue {
 
   validEmail(email): boolean {
     // eslint-disable-next-line
-    const re =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
 
