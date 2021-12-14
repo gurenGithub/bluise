@@ -1,16 +1,20 @@
 <template>
   <div>
     <div class="flex mt-6 rout">
-      <div class="banner flex-1 mr-6">
+      <div class="banner  w-3/4 flex-1 mr-6">
         <banner />
+        <div class="mt-4 mb-4">
+          <items />
+        </div>
+        <div class="list flex-1 mt-2">
+          <p class="bg-white pt-4 px-4">推荐文章</p>
+          <List></List>
+        </div>
       </div>
       <div class="tabs w-1/4 shrink-0">
         <Tags />
+        <div class="reco w-1/4 shrink-0 p-2">推荐文章</div>
       </div>
-    </div>
-    <div class="flex mt-6">
-      <div class="list flex-1 p-2 mr-6 bg-white">列表</div>
-      <div class="reco w-1/4 shrink-0 p-2 bg-white">推荐文章</div>
     </div>
   </div>
 </template>
@@ -20,8 +24,11 @@ import { Component, Vue } from 'nuxt-property-decorator';
 import settings from '@/content/settings/general.json';
 import Banner from '@/components/partials/banner.vue';
 import Tags from '@/components/partials/category.vue';
+import List from '@/components/partials/list.vue';
+import Items from '@/components/partials/items.vue';
+
 @Component({
-  components: { Banner, Tags },
+  components: { Banner, Tags, List, Items },
   // Called to know which transition to apply
   transition() {
     return 'slide-left';

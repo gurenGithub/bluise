@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-full px-5">
+  <div class="bg-white h-auto px-5">
     <p class="py-2 text-lg font-extrabold tracking-tight text-gray-900">推荐</p>
     <div class="flex items-center pb-2" v-for="(item, index) in list" :key="index">
       <div class="flex-shrink-0 h-10 w-10">
