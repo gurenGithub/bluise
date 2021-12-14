@@ -27,6 +27,8 @@
     "not dead"
   ],
   "dependencies": {
+    "@headlessui/vue": "^1.4.2",
+    "@heroicons/vue": "^1.0.5",
     "@nuxt/typescript-runtime": "^0.4.10",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/markdownit": "^1.2.9",

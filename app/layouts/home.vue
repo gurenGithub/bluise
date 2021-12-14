@@ -1,7 +1,7 @@
 <template>
   <!-- This example requires Tailwind CSS v2.0+ -->
   <nav class="bg-gray-800">
-    <div class="container max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
@@ -60,32 +60,43 @@
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
-            <a href="/">
-              <img
-                class="block lg:hidden h-8 w-auto"
-                src="/images/logo.png"
-                srcset="/images/logo.png 2x"
-                alt="Workflow"
-              />
-              <img
-                class="hidden lg:block h-12 w-auto"
-                src="/images/logo.png"
-                srcset="/images/logo.png 2x"
-                alt="Workflow"
-              />
-            </a>
+            <img
+              class="block lg:hidden h-8 w-auto"
+              src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+              alt="Workflow"
+            />
+            <img
+              class="hidden lg:block h-8 w-auto"
+              src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+              alt="Workflow"
+            />
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a
-                v-for="item in menus"
-                :key="item.name"
-                :href="item.link"
-                class="text-white px-3 py-3 rounded-md text-sm font-medium"
-                :class="[{ 'bg-gray-900': isActive(item.name) }]"
+                href="#"
+                class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                 aria-current="page"
-                >{{ item.title }}</a
+                >Dashboard</a
+              >
+
+              <a
+                href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >Team</a
+              >
+
+              <a
+                href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >Projects</a
+              >
+
+              <a
+                href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >Calendar</a
               >
             </div>
           </div>
@@ -94,7 +105,6 @@
           class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
           <button
-            v-if="false"
             type="button"
             class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
           >
@@ -147,7 +157,6 @@
               To: "transform opacity-0 scale-95"
           -->
             <div
-              v-if="false"
               class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
@@ -193,7 +202,7 @@
           href="#"
           class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
           aria-current="page"
-          >首页</a
+          >Dashboard</a
         >
 
         <a
@@ -217,25 +226,3 @@
     </div>
   </nav>
 </template>
-<script>
-export default {
-  data() {
-    let menus = [
-      { title: '首页', link: '/', name: 'name' },
-      { title: '随笔', link: '/blog', name: 'blog' },
-      // { title: '首页', link: '/', name: 'name' },
-
-      { title: '在线图表', link: '/table' },
-    ];
-    let current = 'name';
-    return { showMenu: false, menus, current };
-  },
-  computed: {
-    isActive() {
-      return (name) => {
-        return this.current === name;
-      };
-    },
-  },
-};
-</script>
