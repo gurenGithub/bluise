@@ -2,12 +2,12 @@
   <div class="h-full">
     <div class="flex items-start p-4 mb-3 bg-white" v-for="(item, index) in items" :key="index">
       <div class="flex-shrink-0 h-32 w-48">
-        <a :href="item.link">
+        <a :href="item | link" target="_blank">
           <img class="h-32 w-48 rounded" :src="item.thumb" alt="" />
         </a>
       </div>
       <div class="ml-4 flex-1 h-32 relative">
-        <a :href="item.link">
+        <a :href="item | link" target="_blank">
           <div class="text-sm font-medium text-gray-900">
             {{ item.title }}
           </div>
