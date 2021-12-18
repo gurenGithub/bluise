@@ -59,7 +59,7 @@ const nuxtConfig: Configuration = {
     subFolders: false,
 
     routes: [
-      ...fg.sync(['./app/content/blog/**.json', './app/content/pages/**.json']).map(url => ({
+      ...fg.sync(['./app/content/blog/**.json', './app/content/pages/**.json']).map((url) => ({
         route: url.replace(/^.\/app\/content(\/pages)?|.json$/gi, ''),
         payload: require(url),
       })),
@@ -69,13 +69,25 @@ const nuxtConfig: Configuration = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    {
+      src: '~plugins/api.js',
+      ssr: true,
+    },
+    {
+      src: '~plugins/ant-design-vue.js',
+      ssr: true,
+    },
+    {
+      src: '~plugins/filter/index.js',
+      ssr: true,
+    },
+  ],
 
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', '@nuxtjs/markdownit'],
-
+  modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', '@nuxtjs/markdownit', '@nuxtjs/axios'],
 
   markdownit: {
     preset: 'default',

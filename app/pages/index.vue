@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="flex mt-6 rout">
-      <div class="banner  w-3/4 flex-1 mr-6">
+      <div class="banner w-3/4 flex-1 mr-6">
         <banner />
         <div class="mt-4 mb-4">
           <items />
         </div>
         <div class="list flex-1 mt-2">
           <p class="bg-white pt-4 px-4">推荐文章</p>
-          <List></List>
+          <List :items="news.items"></List>
         </div>
       </div>
       <div class="tabs w-1/4 shrink-0">
@@ -76,6 +76,15 @@ export default class Home extends Vue {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  async asyncData({ app }) {
+    let newApi = app.$api.getApi('news');
+
+    let news = await newApi.getList({});
+
+    //console.log(news);
+    return { news };
   }
 }
 </script>
