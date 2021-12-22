@@ -6,7 +6,7 @@
         <nuxt class="nuxt" />
       </div>
     </main>
-    <site-footer />
+    <site-footer class="mt-6" />
   </div>
 </template>
 

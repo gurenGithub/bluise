@@ -7,13 +7,19 @@
           <items />
         </div>
         <div class="list flex-1 mt-2">
-          <p class="bg-white pt-4 px-4">推荐文章</p>
+          <div class="bg-white px-4 pt-4"><c-title>最新推文</c-title></div>
+
           <List :items="news.items"></List>
         </div>
       </div>
       <div class="tabs w-1/4 shrink-0">
         <Tags />
-        <div class="reco w-1/4 shrink-0 p-2">推荐文章</div>
+        <div class="reco shrink-0 p-2 bg-white w-auto mt-6">
+          <c-title>广告招商</c-title>
+        </div>
+        <div class="reco shrink-0 p-2 bg-white w-auto mt-6">
+          <c-title>热门文章</c-title>
+        </div>
       </div>
     </div>
   </div>
@@ -25,10 +31,11 @@ import settings from '@/content/settings/general.json';
 import Banner from '@/components/partials/banner.vue';
 import Tags from '@/components/partials/category.vue';
 import List from '@/components/partials/list.vue';
+import CTitle from '@/components/partials/Title.vue';
 import Items from '@/components/partials/items.vue';
 
 @Component({
-  components: { Banner, Tags, List, Items },
+  components: { Banner, Tags, List, Items, CTitle },
   // Called to know which transition to apply
   transition() {
     return 'slide-left';

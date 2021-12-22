@@ -8,4 +8,9 @@ module.exports = {
   theme: {},
   variants: {},
   plugins: [],
+  extends: {
+    width: {
+      '80': '80rem',
+    },
+  },
 };

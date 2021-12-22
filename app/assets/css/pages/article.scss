@@ -1,0 +1,41 @@
+$article: 'article';
+.#{$article} {
+  &-contents {
+    background-color: #fff;
+    //padding: 17px 30px 30px;
+  }
+  &-content {
+    pre {
+      code {
+        display: none;
+      }
+    }
+    & > ul {
+      margin-bottom: 15px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+  }
+  &-info {
+  }
+
+  &-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #3d4351;
+    line-height: 33px;
+    margin-bottom: 21px;
+  }
+}
+
+blockquote {
+  padding: 16px 16px 16px;
+  border-left: 2px solid #4777f4;
+  background-color: #f4f5f9;
+  margin: 0;
+  font-weight: 700;
+  color: #3d4351;
+  line-height: 26px;
+  margin-bottom: 20px;
+}

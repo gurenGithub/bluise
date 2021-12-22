@@ -1,5 +1,6 @@
 @import 'markdown';
-
+@import  './layout.scss';
+@import './components/index.scss';
 body {
   @apply antialiased;
   @apply subpixel-antialiased;

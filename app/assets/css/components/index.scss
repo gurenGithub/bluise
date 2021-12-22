@@ -1,0 +1,10 @@
+@import './tags.scss';
+
+.u-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  li {
+    flex-shrink: 0;
+  }
+}

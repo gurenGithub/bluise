@@ -1,0 +1,52 @@
+$ctags: "ctags";
+
+.#{$ctags} {
+  font-size: 14px;
+  //font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #92929b;
+  line-height: 20px;
+  &.color-light {
+    color: #c2c2ce;
+  }
+
+  a{
+    color: inherit;
+  }
+  li {
+    word-wrap: normal;
+    &::after {
+      content: "/";
+      padding: 0 4px 0 4px;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    span{
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.no-space{
+    li {
+      &::after {
+        display: none;
+        content: " ";
+        //padding: 0 5px 0 5px;
+      }
+    }
+  }
+  &.space {
+    li {
+      &::after {
+        content: " ";
+        //padding: 0 5px 0 5px;
+      }
+    }
+  }
+}

@@ -14,9 +14,12 @@ class News extends Base {
 
   getList(params) {
     let url = this.getUrl('/news/list/latest.json');
-
-    console.log(url, params);
     return this.get(url, params);
+  }
+
+  getById(id) {
+    let url = this.getUrl(`/news/details/${id}.json`);
+    return this.get(url, {});
   }
 }
 

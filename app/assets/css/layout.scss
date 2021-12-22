@@ -1,0 +1,25 @@
+$layout: 'layout';
+.#{$layout} {
+  &-main {
+    z-index: 10;
+    position: relative;
+  }
+  &-banner-bg {
+    // background-image: url('~@/assets/imgs/home-bg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    height: 300px;
+  }
+  &-left-nav{
+    width: 300px;
+  }
+  &-right-nav{
+    width: 300px;
+  }
+  &-mid{
+    width: 800px;
+  }
+}
