@@ -37,8 +37,19 @@ export default {
   },
   head() {
     return {
-      title: this.news.title + '| 渣男厨房',
+      title: this.news.title,
 
+      // description: this.news.instruction,
+      meta: [
+        { hid: 'description', name: 'description', content: this.news.instruction },
+        //{ hid: 'og:keywords', name: 'og:keywords', content: this.news.instruction },
+        { hid: 'og:description', name: 'og:description', content: this.news.instruction },
+        {
+          hid: 'keywords',
+          name: 'description',
+          content: (this.news.tag_names || []).concat([this.news.category_name]).join(','),
+        },
+      ],
       script: [
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js' },
         {
