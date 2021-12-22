@@ -89,9 +89,29 @@ const nuxtConfig: Configuration = {
    */
   modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', '@nuxtjs/markdownit', '@nuxtjs/axios'],
 
- 
+  markdownit: {
+    preset: 'default',
 
- 
+    injected: true,
+
+    // Convert '\n' in paragraphs into <br>
+    breaks: true,
+
+    // Enable HTML tags in source
+    html: true,
+
+    // Enable some language-neutral replacement + quotes beautification
+    typographer: true,
+  },
+
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: 'https://d33wubrfki0l68.cloudfront.net/.*',
+        handler: 'cacheFirst',
+      },
+    ],
+  },
 
   pwa: {
     icon: {
@@ -116,10 +136,10 @@ const nuxtConfig: Configuration = {
   // Serve both, the modern bundle <script type="module"> and the legacy bundle <script nomodule> scripts,
   // also provide a <link rel="modulepreload"> for the modern bundle.
   // Every browser that understands the module type will load the modern bundle while older browsers fall back to the legacy (transpiled) one.
-  /*...(process.env.NODE_ENV === 'production' && {
+  ...(process.env.NODE_ENV === 'production' && {
     modern: 'client',
   }),
-*/
+
   buildModules: [
     [
       '@nuxt/typescript-build',
@@ -174,7 +194,7 @@ const nuxtConfig: Configuration = {
 
     // Extend webpack config
     extend(config, { isDev }): void {
-      config.devtool = isDev ? 'eval-source-map' : 'eval-source-map';
+      config.devtool = isDev ? 'eval-source-map' : false;
     },
   },
 };
