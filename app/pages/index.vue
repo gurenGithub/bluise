@@ -32,7 +32,7 @@ import Banner from '@/components/partials/banner.vue';
 import Tags from '@/components/partials/category.vue';
 import List from '@/components/partials/list.vue';
 import CTitle from '@/components/partials/Title.vue';
-import CItems from '@/components/partials/Items.vue'
+import CItems from '@/components/partials/Labels.vue'
 
 @Component({
   components: { Banner, Tags, List, CItems, CTitle },
