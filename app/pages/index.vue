@@ -4,7 +4,7 @@
       <div class="banner w-3/4 flex-1 mr-6">
         <banner />
         <div class="mt-4 mb-4">
-          <items />
+          <CItems />
         </div>
         <div class="list flex-1 mt-2">
           <div class="bg-white px-4 pt-4"><c-title>最新推文</c-title></div>
@@ -32,10 +32,10 @@ import Banner from '@/components/partials/banner.vue';
 import Tags from '@/components/partials/category.vue';
 import List from '@/components/partials/list.vue';
 import CTitle from '@/components/partials/Title.vue';
-import Items from '@/components/partials/items.vue';
+import CItems from '@/components/partials/Items.vue'
 
 @Component({
-  components: { Banner, Tags, List, Items, CTitle },
+  components: { Banner, Tags, List, CItems, CTitle },
   // Called to know which transition to apply
   transition() {
     return 'slide-left';
@@ -68,7 +68,7 @@ export default class Home extends Vue {
 
   async handleSubmit(): Promise<void> {
     if (!this.validEmail(this.form.email)) {
-      this.$refs.emailInput.focus();
+      // this.$refs.emailInput.focus();
       return;
     }
 
