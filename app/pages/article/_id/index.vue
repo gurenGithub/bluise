@@ -6,7 +6,7 @@
           {{ news.title }}
         </div>
         <div class="article-info mb-4">
-          <Tags class="space" :items="news.tag_names">
+          <Tags class="line" :items="news.tag_names">
             <li>
               <span class="article-pub_time">{{ news.pub_time | displayTime }}</span>
             </li>
@@ -25,15 +25,39 @@
       </div>
     </div>
     <div class="tabs w-1/4 shrink-0 article-recommend">
-      <div class="bg-white">推荐内容</div>
+      <Author :author_id="news.author_id" :value="news" />
+      <div class="bg-white mt-6">
+        <div class="p-4 flex flex-col">
+          <CTitle class="mb-4">作者热文</CTitle>
+          <div>
+            <SimpleImageList :items="lastet_news" />
+          </div>
+        </div>
+      </div>
+      <div class="bg-white mt-6">
+        <div class="p-4 flex flex-col">
+          <CTitle>推荐文章</CTitle>
+          <div>
+            <SimpleList :items="lastet_news" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import Tags from '@/components/partials/Tags.vue';
+import CTitle from '@/components/partials/Title.vue';
+import SimpleList from '@/components/partials/SimpleList.vue';
+import Author from '@/components/partials/Author.vue';
+import SimpleImageList from '@/components/partials/SimpleImageList.vue';
 export default {
   components: {
     Tags,
+    CTitle,
+    SimpleList,
+    Author,
+    SimpleImageList,
   },
   head() {
     return {
@@ -106,8 +130,13 @@ export default {
 
     let news = await newApi.getById(id);
 
-    console.log(news);
-    return { news: news };
+    //console.log(news);
+    //let newApi = app.$api.getApi('news');
+
+    let lastet_news = await newApi.getList({});
+
+    //console.log(lastet_news)
+    return { news: news, lastet_news: lastet_news.items };
   },
 };
 </script>

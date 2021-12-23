@@ -7,17 +7,18 @@
           <CItems />
         </div>
         <div class="list flex-1 mt-2">
-          <div class="bg-white px-4 pt-4"><c-title>最新推文</c-title></div>
-
+          <div class="bg-white px-4 pt-4">
+            <c-title>最新推文</c-title>
+          </div>
           <List :items="news.items"></List>
         </div>
       </div>
       <div class="tabs w-1/4 shrink-0">
         <Tags />
-        <div class="reco shrink-0 p-2 bg-white w-auto mt-6">
+        <div class="reco shrink-0 py-2 px-4 bg-white w-auto mt-6">
           <c-title>广告招商</c-title>
         </div>
-        <div class="reco shrink-0 p-2 bg-white w-auto mt-6">
+        <div class="reco shrink-0 py-2 px-4 bg-white w-auto mt-6">
           <c-title>热门文章</c-title>
         </div>
       </div>
@@ -32,7 +33,7 @@ import Banner from '@/components/partials/banner.vue';
 import Tags from '@/components/partials/category.vue';
 import List from '@/components/partials/list.vue';
 import CTitle from '@/components/partials/Title.vue';
-import CItems from '@/components/partials/Labels.vue'
+import CItems from '@/components/partials/Labels.vue';
 
 @Component({
   components: { Banner, Tags, List, CItems, CTitle },
