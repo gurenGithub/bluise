@@ -54,7 +54,7 @@
             <div class="group relative text-sm text-center">
               粉丝
             </div>
-            <div class="group relative text-sm text-center">
+            <div class="group relative text-sm text-center" >
               关注
             </div>
             <div class="group relative text-sm text-center">
