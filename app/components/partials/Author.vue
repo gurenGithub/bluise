@@ -22,8 +22,11 @@
       </p>
       <div class="mt-1 flex">
         <span
-          class="bg-red-600 text-white rounded-xl px-3 py-1 text-xs"
-          :class="[{ 'mr-2': parseInt(index) !== labels.length - 1 }]"
+          class="text-white rounded-xl px-3 py-1 text-xs"
+          :class="[
+            { 'mr-2': parseInt(index) !== labels.length - 1 },
+            ['bg-orange-600', 'bg-blue-700', 'bg-red-600', 'bg-green-600'][index] || 'bg-green-600',
+          ]"
           v-for="(label, index) in labels"
           :key="label"
         >
