@@ -14,17 +14,17 @@
       <img
         style="object-fit: cover;"
         class="inline-block h-16 w-16 relative z-10 rounded-full ring-2 ring-white"
-        :src="value.author_avatar"
-        :alt="value.author_name"
+        :src="author_avatar || value.author_avatar"
+        :alt="author_name || value.author_name"
       />
-      <p class="mt-2 text-2xl">
-        <a>{{ value.author_name }}</a>
+      <p class="mt-2 text-xl font-bold text-gray-900">
+        <a>{{ author_name || value.author_name }}</a>
       </p>
-      <div class="mt-1 flex">
+      <div class="mt-2 flex">
         <span
           class="text-white rounded-xl px-3 py-1 text-xs"
           :class="[
-            { 'mr-2': parseInt(index) !== labels.length - 1 },
+            { 'mr-3': parseInt(index) !== labels.length - 1 },
             ['bg-orange-600', 'bg-blue-700', 'bg-red-600', 'bg-green-600'][index] || 'bg-green-600',
           ]"
           v-for="(label, index) in labels"
@@ -38,7 +38,7 @@
         <div class="max-w-2xl mt-4 mx-auto lg:max-w-none">
           <div class="lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-x-6">
             <div class="group relative text-sm text-center">
-              {{ focus }}
+              {{ follow }}
             </div>
             <div class="group relative text-sm text-center">
               {{ fans }}
@@ -52,10 +52,10 @@
           </div>
           <div class="lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-x-6">
             <div class="group relative text-sm text-center">
-              关注
+              粉丝
             </div>
             <div class="group relative text-sm text-center">
-              粉丝
+              关注
             </div>
             <div class="group relative text-sm text-center">
               点赞
@@ -92,16 +92,26 @@ export default {
     api.getById(this.author_id).then((res) => {
       this.bg = res.bg;
       this.labels = res.labels || [];
+      this.author_name = res.nick;
+      this.author_avatar = res.avatar;
+
+      let { focus, fans, like, visit } = res;
+
+      'follow,fans,like,visit'.split(',').map((el) => {
+        this[el] = res[el] || '0';
+      });
     });
   },
   data() {
     return {
-      focus: '99+',
-      fans: '99+',
-      like: '99+',
-      visit: '99+',
+      follow: '0',
+      fans: '0',
+      like: '0',
+      visit: '0',
       bg: '',
       labels: [],
+      author_avatar: '',
+      author_name: '',
     };
   },
 };
